@@ -23,14 +23,6 @@ meme_gen = MemeGenerator()
 dp = Dispatcher()
 
 
-@dp.message(CommandStart())
-async def start(message: Message):
-    if not message.from_user:
-        return
-
-    await message.answer(f"Hello, {html.bold(message.from_user.full_name)}")
-
-
 @dp.message(Command("stats"))
 async def stats(message: Message):
     guild_id = str(message.chat.id)
@@ -177,6 +169,10 @@ async def on_message(message: Message):
         photo = message.photo[-1]
         destination = image_dir / photo.file_unique_id
         await message.bot.download(photo, destination=destination)
+
+    if random.random() < float(os.environ["MESSAGE_CHANCE"]):
+        msg = chain.generate_message(random.randint(2, 12), guild_id)
+        await message.reply(msg)
 
 
 async def main():
