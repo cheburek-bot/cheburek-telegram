@@ -178,14 +178,14 @@ wheels = [
 
 [[package]]
 name = "cheburek-core"
-version = "0.1.3"
+version = "0.1.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pillow" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f4/24/d8007e6231cefce1cf475188b2231dc0cc6003e99dacae435c5604c4acd4/cheburek_core-0.1.3.tar.gz", hash = "sha256:0b9ce467c741412231531bb2ba3e60627a201f6857d857573fa72c1e5455c559", size = 3759, upload-time = "2026-10-13T20:03:40.173Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/1d/63/19b670b43900856acd7cf0166f5fc088ce0a89109d27b3ca924054fefc2e/cheburek_core-0.1.7.tar.gz", hash = "sha256:014ca15cdab7bd4e68a0bce31b4583f47b6da109569cc30af12e58c79d3f56a7", size = 3800, upload-time = "2026-10-13T21:50:26.287Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7c/25/4e6e9cc8ee142e1aef14ff50903415a8c2465a47e446f01cd0473efa16d9/cheburek_core-0.1.3-py3-none-any.whl", hash = "sha256:16834fd1a011de1548124698e9eb307799d9d0efdd1d69d54afd68b272dc3baa", size = 4451, upload-time = "2026-10-13T20:03:39.031Z" },
+    { url = "https://files.pythonhosted.org/packages/39/c7/a02abab134e49eb3b8df1f5fd1e08244430776268dee19bfc25b5ab11269/cheburek_core-0.1.7-py3-none-any.whl", hash = "sha256:c7996e1a7706b224f02e121f3f5bdb25eaf2aa5cdb6bfe05bf2a57d2007b618d", size = 4515, upload-time = "2026-10-13T21:50:25.146Z" },
 ]
 
 [[package]]
@@ -201,7 +201,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "aiogram", specifier = ">=3.31.0" },
-    { name = "cheburek-core", specifier = ">=0.1.3" },
+    { name = "cheburek-core", specifier = ">=0.1.7" },
     { name = "python-dotenv", specifier = ">=1.2.4" },
 ]
 
