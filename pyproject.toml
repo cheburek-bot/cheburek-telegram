@@ -6,5 +6,6 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "aiogram>=3.31.0",
+    "cheburek-core>=0.1.2",
     "python-dotenv>=1.2.4",
 ]
