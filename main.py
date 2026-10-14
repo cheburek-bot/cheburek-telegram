@@ -162,13 +162,22 @@ async def on_message(message: Message):
         words = clean_content.split(" ")
         chain.process_words(words, guild_id)
 
-    if message.photo and message.bot:
-        image_dir = Path(f"./data/{guild_id}/images")
-        image_dir.mkdir(parents=True, exist_ok=True)
+    if message.bot:
+        if message.photo:
+            image_dir = Path(f"./data/{guild_id}/images")
+            image_dir.mkdir(parents=True, exist_ok=True)
 
-        photo = message.photo[-1]
-        destination = image_dir / photo.file_unique_id
-        await message.bot.download(photo, destination=destination)
+            photo = message.photo[-1]
+            destination = image_dir / photo.file_unique_id
+            await message.bot.download(photo, destination=destination)
+
+        if message.animation:
+            gif_dir = Path(f"./data/{guild_id}/gifs")
+            gif_dir.mkdir(parents=True, exist_ok=True)
+
+            gif = message.animation
+            destination = gif_dir / gif.file_unique_id
+            await message.bot.download(gif, destination=destination)
 
     if random.random() < float(os.environ["MESSAGE_CHANCE"]):
         msg = chain.generate_message(random.randint(2, 12), guild_id)
