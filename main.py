@@ -12,7 +12,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import Command, CommandStart
 from aiogram.types import BufferedInputFile, Message
-from cheburek import Chain, MemeGenerator
+from cheburek_core import Chain, MemeGenerator
 from dotenv import load_dotenv
 
 load_dotenv()
