@@ -1,6 +1,6 @@
 [project]
 name = "cheburek-telegram"
-version = "1.1.0"
+version = "1.1.1"
 description = "The Cheburek bot on Telegram"
 readme = "README.md"
 requires-python = ">=3.14"
