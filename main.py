@@ -5,20 +5,23 @@ import os
 import random
 import re
 import sys
+import uuid
 from pathlib import Path
+from typing import final
 
 from aiogram import Bot, Dispatcher, html
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import Command, CommandStart
-from aiogram.types import BufferedInputFile, Message
-from cheburek_core import Chain, MemeGenerator
+from aiogram.types import BufferedInputFile, FSInputFile, Message
+from cheburek_core import AnimationGenerator, Chain, MemeGenerator
 from dotenv import load_dotenv
 
 load_dotenv()
 
 chain = Chain()
 meme_gen = MemeGenerator()
+anim_gen = AnimationGenerator()
 
 dp = Dispatcher()
 
@@ -30,8 +33,9 @@ async def stats(message: Message):
     words = chain.get_words_count(guild_id)
     links = chain.get_links_count(guild_id)
     images = meme_gen.get_images_count(guild_id)
+    anims = anim_gen.get_animations_count(guild_id)
 
-    answer = f"{html.bold(f"Статистика для канала {message.chat.full_name}:")}\n📖 Слова – {words} слов\n🔗 Связей – {links} связей\n🌅 Изображений – {images} изображений"
+    answer = f"{html.bold(f"Статистика для канала {message.chat.full_name}:")}\n📖 Слова – {words} слов\n🔗 Связей – {links} связей\n🌅 Изображений – {images} изображений\n🎬 Гифки – {anims} гифок"
     await message.answer(answer)
 
 
@@ -144,6 +148,53 @@ async def meme(message: Message):
 
         photo_to_send = BufferedInputFile(image_binary.getvalue(), filename="meme.png")
         await message.answer_photo(photo=photo_to_send)
+
+
+@dp.message(Command("ameme"))
+async def ameme(message: Message):
+    guild_id = str(message.chat.id)
+
+    if anim_gen.get_animations_count(guild_id) == 0:
+        await message.answer(
+            html.bold(
+                "❌ Не хватает гифок! Отправьте больше гифок и повторите команду."
+            )
+        )
+        return
+
+    if chain.get_words_count(guild_id) == 0:
+        await message.answer(
+            html.bold(
+                "❌ Не хватает слов! Отправьте больше сообщений и повторите команду."
+            )
+        )
+        return
+
+    msg1 = chain.generate_message(random.randint(2, 8), guild_id)
+    msg2 = chain.generate_message(random.randint(2, 8), guild_id)
+
+    random_anim = anim_gen.get_random_animation(guild_id)
+
+    temp_path = Path(f"data/{guild_id}/temp")
+    temp_path.mkdir(parents=True, exist_ok=True)
+
+    id = uuid.uuid4().hex
+    output_path = f"{temp_path}/output_{id}.mp4"
+
+    await asyncio.to_thread(
+        anim_gen.create_animated_meme, msg1, msg2, random_anim, output_path
+    )
+
+    try:
+
+        video_file = FSInputFile(output_path)
+        await message.answer_video(video_file)
+    except Exception as e:
+        print(e)
+        await message.answer(html.bold("❌ Произошла ошибка!"))
+    finally:
+        if os.path.exists(output_path):
+            os.remove(output_path)
 
 
 @dp.message()
