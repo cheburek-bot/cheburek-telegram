@@ -3,6 +3,6 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN uv sync --locked
+RUN uv sync
 
 CMD [ "uv", "run", "main.py" ]
