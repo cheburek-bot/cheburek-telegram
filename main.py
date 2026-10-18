@@ -11,7 +11,7 @@ from typing import final
 
 from aiogram import Bot, Dispatcher, html
 from aiogram.client.default import DefaultBotProperties
-from aiogram.enums import ParseMode
+from aiogram.enums import MessageEntityType, ParseMode
 from aiogram.filters import Command, CommandStart
 from aiogram.types import BufferedInputFile, FSInputFile, Message
 from cheburek_core import AnimationGenerator, Chain, MemeGenerator
@@ -198,7 +198,7 @@ async def ameme(message: Message):
 
 
 @dp.message()
-async def on_message(message: Message):
+async def on_message(message: Message, bot: Bot):
     guild_id = str(message.chat.id)
 
     if message.text:
@@ -213,24 +213,39 @@ async def on_message(message: Message):
         words = clean_content.split(" ")
         chain.process_words(words, guild_id)
 
-    if message.bot:
-        if message.photo:
-            image_dir = Path(f"./data/{guild_id}/images")
-            image_dir.mkdir(parents=True, exist_ok=True)
+    is_mentioned = False
 
-            photo = message.photo[-1]
-            destination = image_dir / photo.file_unique_id
-            await message.bot.download(photo, destination=destination)
+    me = await bot.get_me()
+    bot_mention = f"@{me.username}".casefold()
 
-        if message.animation:
-            gif_dir = Path(f"./data/{guild_id}/gifs")
-            gif_dir.mkdir(parents=True, exist_ok=True)
+    if message.photo:
+        image_dir = Path(f"./data/{guild_id}/images")
+        image_dir.mkdir(parents=True, exist_ok=True)
 
-            gif = message.animation
-            destination = gif_dir / gif.file_unique_id
-            await message.bot.download(gif, destination=destination)
+        photo = message.photo[-1]
+        destination = image_dir / photo.file_unique_id
+        await bot.download(photo, destination=destination)
+        return
 
-    if random.random() < float(os.environ["MESSAGE_CHANCE"]):
+    if message.animation:
+        gif_dir = Path(f"./data/{guild_id}/gifs")
+        gif_dir.mkdir(parents=True, exist_ok=True)
+
+        gif = message.animation
+        destination = gif_dir / gif.file_unique_id
+        await bot.download(gif, destination=destination)
+        return
+
+    if message.entities and message.text:
+        for entity in message.entities:
+            if entity.type == MessageEntityType.MENTION:
+                mentioned = message.text[entity.offset : entity.offset + entity.length]
+
+                if mentioned.casefold() == bot_mention:
+                    is_mentioned = True
+                    break
+
+    if is_mentioned or random.random() < float(os.environ["MESSAGE_CHANCE"]):
         msg = chain.generate_message(random.randint(2, 12), guild_id)
         await message.reply(msg)
 
