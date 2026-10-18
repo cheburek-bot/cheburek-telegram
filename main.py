@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-chain = Chain()
+chain = Chain(start_word_type=os.environ["START_WORD_TYPE"])
 meme_gen = MemeGenerator()
 anim_gen = AnimationGenerator()
 

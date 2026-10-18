@@ -178,15 +178,15 @@ wheels = [
 
 [[package]]
 name = "cheburek-core"
-version = "1.2.0"
+version = "1.4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ffmpeg-python" },
     { name = "pillow" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/83/b8/b597ef94baef6fb8e359001e710edf6f1f4142220cdbfbc4cea3c5ea299d/cheburek_core-1.2.0.tar.gz", hash = "sha256:d69410ca7beac342e33bff2e9ee5bd3eba9938ea657ab1caa9c60011d5f1dc7b", size = 3548, upload-time = "2026-10-18T20:44:28.108Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/08/75/e17b3bd892d4d7957ceb798874d3805765c2eb44bbc5f1d837b7c36c4f87/cheburek_core-1.4.0.tar.gz", hash = "sha256:5c5c4c903b5e6e59670d42da973bef0799952e6281305ca1c458f53227828930", size = 3628, upload-time = "2026-10-18T21:05:14.372Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d0/dd/8062f0d08634fcd4bb4bf392899359b75c845cab182734225223e75de75e/cheburek_core-1.2.0-py3-none-any.whl", hash = "sha256:d6bab63e4daa38bd33449bce4ae3f0f5c8aa7d9ea79578ad4ac136244bf3f0ba", size = 4764, upload-time = "2026-10-18T20:44:26.903Z" },
+    { url = "https://files.pythonhosted.org/packages/4a/fd/b05bdf96fc8602bb28c3e72b5237515929f517eb717dba75759a8a014c7e/cheburek_core-1.4.0-py3-none-any.whl", hash = "sha256:66f6531b40d7b59b5f0e76f0dbaca9dccbfb7e673b3053d10af558edfc8bbc53", size = 4839, upload-time = "2026-10-18T21:05:13.422Z" },
 ]
 
 [[package]]
