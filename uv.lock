@@ -169,29 +169,28 @@ wheels = [
 
 [[package]]
 name = "certifi"
-version = "2026.10.18"
+version = "2026.10.19"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/7e/eb/a2aa1ac3ea30dd3f30ca57f40232138b6b0040719316ecb85daf61167771/certifi-2026.10.18.tar.gz", hash = "sha256:b9995d97b64d0431a5af837d8ca8cd6238104d1f319f04bd93ea43124d6c861e", size = 135227, upload-time = "2026-10-18T16:21:07.655Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a6/bd/1436c50cc46699de0230fbaacc1d1de7bfec413176099949e9d5112e88f2/certifi-2026.10.19.tar.gz", hash = "sha256:035c1e85572b141bf1c3a3eff0e33a8eb74917522f2559075ff8d2fea780a1ae", size = 137598, upload-time = "2026-10-20T02:24:16.604Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/08/ba/95dd616042484f7c83a06974388b37b837732740ee70bc5dc715b5fcd55a/certifi-2026.10.18-py3-none-any.whl", hash = "sha256:73191c47aaa79da394e8fee2dbc2ec827432cab56311122c9e47abf79e390f62", size = 134093, upload-time = "2026-10-18T16:21:06.276Z" },
+    { url = "https://files.pythonhosted.org/packages/c4/51/29046e48f693c54e5b7412216d447a1d8362c9653148d98c02cdf65fa733/certifi-2026.10.19-py3-none-any.whl", hash = "sha256:42d35340cc5b9ba78e818ddbff0c5b1c2b779de448a340fd1b989f5fa8670e1b", size = 136464, upload-time = "2026-10-20T02:24:15.072Z" },
 ]
 
 [[package]]
 name = "cheburek-core"
-version = "1.4.0"
+version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "ffmpeg-python" },
     { name = "pillow" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/08/75/e17b3bd892d4d7957ceb798874d3805765c2eb44bbc5f1d837b7c36c4f87/cheburek_core-1.4.0.tar.gz", hash = "sha256:5c5c4c903b5e6e59670d42da973bef0799952e6281305ca1c458f53227828930", size = 3628, upload-time = "2026-10-18T21:05:14.372Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/50/62/ad86257a61d7b6161f7f42c60afe755c38213c96ca659425d1814e67d0f2/cheburek_core-2.0.0.tar.gz", hash = "sha256:5e7e12df7a4243fa1a0617d0da5d57e0d8270536f0f43d97bac2b833d107713c", size = 3339, upload-time = "2026-10-21T13:55:47.738Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4a/fd/b05bdf96fc8602bb28c3e72b5237515929f517eb717dba75759a8a014c7e/cheburek_core-1.4.0-py3-none-any.whl", hash = "sha256:66f6531b40d7b59b5f0e76f0dbaca9dccbfb7e673b3053d10af558edfc8bbc53", size = 4839, upload-time = "2026-10-18T21:05:13.422Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/a9/7b636b95c51b3c7091600e93371ed2dcb99ae993db79370b58bb961db335/cheburek_core-2.0.0-py3-none-any.whl", hash = "sha256:94af361d56dd7a77c222af60a4e5d25c7753e6b0d7644d9510e6e97d761c0209", size = 4517, upload-time = "2026-10-21T13:55:46.796Z" },
 ]
 
 [[package]]
 name = "cheburek-telegram"
-version = "1.2.0"
+version = "1.3.0"
 source = { virtual = "." }
 dependencies = [
     { name = "aiogram" },
@@ -204,18 +203,6 @@ requires-dist = [
     { name = "aiogram", specifier = ">=3.31.0" },
     { name = "cheburek-core", specifier = ">=1.0.0" },
     { name = "python-dotenv", specifier = ">=1.2.4" },
-]
-
-[[package]]
-name = "ffmpeg-python"
-version = "0.2.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "future" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/dd/5e/d5f9105d59c1325759d838af4e973695081fbbc97182baf73afc78dec266/ffmpeg-python-0.2.0.tar.gz", hash = "sha256:65225db34627c578ef0e11c8b1eb528bb35e024752f6f10b78c011f6f64c4127", size = 21543, upload-time = "2019-07-06T00:19:08.989Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/d7/0c/56be52741f75bad4dc6555991fabd2e07b432d333da82c11ad701123888a/ffmpeg_python-0.2.0-py3-none-any.whl", hash = "sha256:ac441a0404e053f8b6a1113a77c0f452f1cfc62f6344a769475ffdc0f56c23c5", size = 25024, upload-time = "2019-07-06T00:19:07.215Z" },
 ]
 
 [[package]]
@@ -257,15 +244,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/89/76/c615883b7b521ead2944bb3480398cbb07e12b7b4e4d073d3752eb721558/frozenlist-1.8.0-cp314-cp314t-win_amd64.whl", hash = "sha256:06be8f67f39c8b1dc671f5d83aaefd3358ae5cdcf8314552c57e7ed3e6475bdd", size = 49451, upload-time = "2025-10-06T05:37:53.425Z" },
     { url = "https://files.pythonhosted.org/packages/e0/a3/5982da14e113d07b325230f95060e2169f5311b1017ea8af2a29b374c289/frozenlist-1.8.0-cp314-cp314t-win_arm64.whl", hash = "sha256:102e6314ca4da683dca92e3b1355490fed5f313b768500084fbe6371fddfdb79", size = 42507, upload-time = "2025-10-06T05:37:54.513Z" },
     { url = "https://files.pythonhosted.org/packages/9a/9a/e35b4a917281c0b8419d4207f4334c8e8c5dbf4f3f5f9ada73958d937dcc/frozenlist-1.8.0-py3-none-any.whl", hash = "sha256:0c18a16eab41e82c295618a77502e17b195883241c563b00f0aa5106fc4eaa0d", size = 13409, upload-time = "2025-10-06T05:38:16.721Z" },
-]
-
-[[package]]
-name = "future"
-version = "1.0.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a7/b2/4140c69c6a66432916b26158687e821ba631a4c9273c474343badf84d3ba/future-1.0.0.tar.gz", hash = "sha256:bd2968309307861edae1458a4f8a4f3598c03be43b97521076aebf5d94c07b05", size = 1228490, upload-time = "2024-02-21T11:52:38.461Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/da/71/ae30dadffc90b9006d77af76b393cb9dfbfc9629f339fc1574a1c52e6806/future-1.0.0-py3-none-any.whl", hash = "sha256:929292d34f5872e70396626ef385ec22355a1fae8ad29e1a734c3e43f9fbc216", size = 491326, upload-time = "2024-02-21T11:52:35.956Z" },
 ]
 
 [[package]]
