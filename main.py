@@ -106,6 +106,7 @@ async def on_message(message: Message, bot: Bot):
 
     if is_mentioned or random.random() < float(os.environ["MESSAGE_CHANCE"]):
         msg = chain.generate_message(random.randint(2, 12), guild_id)
+        await asyncio.sleep(2)
         await message.reply(msg)
 
 
